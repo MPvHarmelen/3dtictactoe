@@ -52,7 +52,8 @@ class Board(object):
         # multiple diagonals when you have a larger board.
         pass
 
-def Main():
+if __name__ == '__main__':
     Done = False
     while not Done:
         pass
+
