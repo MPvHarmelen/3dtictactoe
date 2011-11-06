@@ -1,13 +1,17 @@
 # Checklist of what we need to write:
-#   - gui
-#   - data structure
+#   - GUI
+#       Simple Pygame crap? How is the 3D viewing going to
+#       work? Any pretty animations involved?
+#
+#   - Data structure
+#
 #   - Smartass computer
-#     simple idea:
-#     Computer calculates all possible moves, chooses
-#     the one with the highest chance of winning.
-#     Maybe multiple difficulties, with lower difficulties
-#     picking the ones with lower chance of winning (or
-#     even choosing at random).
+#       Simple idea:
+#         Computer calculates all possible moves, chooses
+#         the one with the highest chance of winning.
+#         Maybe multiple difficulties, with lower difficulties
+#         picking the ones with lower chance of winning (or
+#         even choosing at random).
 
 # Coordinates will be tuples of (x,y,z)
 
