@@ -9,9 +9,9 @@
 #     picking the ones with lower chance of winning (or
 #     even choosing at random).
 
-# Coordinates will be tupples of (x,y,z)
+# Coordinates will be tuples of (x,y,z)
 
-# Constants
+# Board will be size*size*size
 size = 3
 
 # Data functions
@@ -23,12 +23,7 @@ def return_value(coordinates):
     value = None
     return value
 
-# --- Main ---
 def Main():
-
-    # -- init --
     Done = False
-
-    # -- Main Loop --
     while not Done:
         pass
