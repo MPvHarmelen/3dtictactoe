@@ -12,6 +12,17 @@
 #         Maybe multiple difficulties, with lower difficulties
 #         picking the ones with lower chance of winning (or
 #         even choosing at random).
+#           This is not a simple idea, because you need to calculate
+#           the winning chance of all possible moves.
+#       Mayby not simple but still effective idea:
+#         1: Check if computer can win, and do so if possible
+#         2: Check if computer will lose, and prevent so if possible
+#         3: Count how many squares of own are in each row, colum,
+#            diagonal and other stuff (we need to think of names for
+#            different things) and count how many squares of opponents
+#            are in each blabla, and then play in the bla with the least
+#            of opponent, but most of own.
+#         
 
 # Coordinates will be tuples of (x,y,z)
 
