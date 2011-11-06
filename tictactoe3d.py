@@ -18,14 +18,39 @@
 # Board will be size*size*size
 size = 3
 
-# Data functions
-def change_value(coordinates,value,game_space):
-    game_space = None
-    return game_space
+class Computer(object):
+    ''' An AI object with different difficulty levels. Creates a real challenge. '''
+    def __init__(self, board, difficulty):
+        self.board = board
+        self.difficulty = difficulty
 
-def return_value(coordinates):
-    value = None
-    return value
+    def turn(self):
+        ''' Should happen every time it's this guy's turn. '''
+        # TODO: Make it check every possible move and find
+        # the one that suits its needs.
+        pass
+
+class Board(object):
+    def __init__(self, size, amount_players):
+        self.board = {}
+        self.size = size
+
+    def getCoord(self, coords):
+        return self.board[coords]
+
+    def setCoord(self, coords, value):
+        for x in coords:
+            if x > self.size-1:
+                return False
+        self.board[coords] = value
+        return True
+
+    def checkIfWon(self):
+        # TODO: Think of a good way to check if someone has
+        # won without any kind of limit to the board size.
+        # Just using lines would be quite hard, since there's
+        # multiple diagonals when you have a larger board.
+        pass
 
 def Main():
     Done = False
