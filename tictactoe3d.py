@@ -2,6 +2,9 @@
 #   - GUI
 #       Simple Pygame crap? How is the 3D viewing going to
 #       work? Any pretty animations involved?
+#           No idea, I think the easiest we can do is the way we play
+#           3dtictactoe on paper. I would like nice animations, but have
+#           no idea of how we could make them...
 #
 #   - Data structure
 #
@@ -36,9 +39,10 @@ class Computer(object):
         self.difficulty = difficulty
 
     def turn(self):
-        ''' Should happen every time it's this guy's turn. '''
+        ''' Should happen every time it's this cpu's turn. '''
         # TODO: Make it check every possible move and find
         # the one that suits its needs.
+        #  Use function I described in the comment under CheckIfWon
         pass
 
 class Board(object):
@@ -56,11 +60,44 @@ class Board(object):
         self.board[coords] = value
         return True
 
-    def checkIfWon(self):
+    def CheckIfWon(self):
         # TODO: Think of a good way to check if someone has
         # won without any kind of limit to the board size.
         # Just using lines would be quite hard, since there's
         # multiple diagonals when you have a larger board.
+        #  I think lines would be okay. We just need to edit the
+        #  function below to stand up to (is this correct EN?) our needs
+        #  of a 3D game. We also need to think of names for things like
+        #  collumns and rows that are in different angles. I think that
+        #  last is best to be discussed in real life =).
+
+##def board_to_lines():
+##    lines = []
+##
+##    # Rows
+##    for y_co in range(gridsize):
+##        lines.append([])
+##        for x_co in range(gridsize):
+##            lines[y_co].append(return_cell((x_co,y_co)))
+##    
+##    # Columns
+##    for x_co in range(gridsize):
+##        lines.append([])
+##        for y_co in range(gridsize):
+##            lines[gridsize + x_co].append(return_cell((x_co,y_co)))
+##
+##    # 1st diagonal
+##    lines.append([])
+##    for co in range(gridsize):
+##        lines[gridsize*2].append(return_cell((co,co)))
+##    
+##    # 2nd diagonal
+##    lines.append([])
+##    for co in range(gridsize):
+##        lines[gridsize*2 +1].append(return_cell((co,(gridsize-1)-co)))
+##
+##    return lines
+    
         pass
 
 if __name__ == '__main__':
