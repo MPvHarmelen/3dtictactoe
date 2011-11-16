@@ -3,6 +3,8 @@ import pygame
 import functions
 import random
 
+
+
 debug = None
 # Define some colors
 black = (   0,   0,   0)
@@ -84,9 +86,9 @@ def computer_stuff():
     empty_list = empty_cells(gameboard)
     co = None
 
-    # For defensive strategy, occupy middle asap
-    if (gridsize//2,gridsize//2) in empty_list:
-            return (gridsize//2, gridsize//2)
+##    # For defensive strategy, occupy middle asap
+##    if (gridsize//2,gridsize//2) in empty_list:
+##            return (gridsize//2, gridsize//2)
     
     # Check if the computer can win
     for index in range(len(lines)):

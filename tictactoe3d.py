@@ -49,6 +49,10 @@ class Board(object):
     def __init__(self, size, amount_players):
         self.board = {}
         self.size = size
+        for x in range(size):
+            for y in range(size):
+                for z in range(size):
+                    self.board[(x,y,z)]=None
 
     def getCoord(self, coords):
         return self.board[coords]
