@@ -61,6 +61,7 @@ class Board(object):
         for x in coords:
             if x > self.size-1:
                 return False
+        # We are defining this out of scope, will it work?
         self.board[coords] = value
         return True
 
@@ -74,6 +75,17 @@ class Board(object):
         #  of a 3D game. We also need to think of names for things like
         #  collumns and rows that are in different angles. I think that
         #  last is best to be discussed in real life =).
+        def BoardToLines(self):
+            self.lines = []
+
+            # (0,0,line) >> (size,size,line)
+            for x in range(size):
+                for y in range(size):
+                    self.lines.append([])
+                    for z in range(size):
+                        self.lines[-1].append(getCoord(self, (x,y,z)))
+            
+            
 
 ##def board_to_lines():
 ##    lines = []
