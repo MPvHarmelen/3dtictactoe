@@ -25,6 +25,8 @@
 #            different things) and count how many squares of opponents
 #            are in each blabla, and then play in the bla with the least
 #            of opponent, but most of own.
+#   - Rens' idea:
+#       Track scores, like nr of wins/losses/draws
 #         
 
 # Coordinates will be tuples of (x,y,z)
@@ -84,6 +86,19 @@ class Board(object):
                     self.lines.append([])
                     for z in range(size):
                         self.lines[-1].append(getCoord(self, (x,y,z)))
+
+            # (0,line,0) >> (size,line,size)
+            for x in range(size):
+                for z in range(size):
+                    self.lines.append([])
+                    for y in range(size):
+                        self.lines[-1].append(getCoord(self, (x,y,z)))
+
+##            # (line,0,0) >> (line,size,size)
+##            for y in range(size):
+##                for z in range(size):
+##                    self.lines.append(
+            
             
             
 
