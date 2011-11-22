@@ -29,22 +29,21 @@ class Board(object):
         #  of a 3D game. We also need to think of names for things like
         #  collumns and rows that are in different angles. I think that
         #  last is best to be discussed in real life =).
-        def BoardToLines(self):
-            self.lines = []
-
+        pass
+    def BoardToLines(self):
             # If we use yield, we can only call it once. I'm not sure if you
             # know about generators, but if you do:
             # yield generates a generator =)
-            
+            size = self.size
             # (0,0,line) >> (size,size,line)
             for x in range(size):
                 for y in range(size):
-                    yield [getCoord(self, (x,y,z)) for z in range(size)]
+                    yield [self.getCoord((x,y,z)) for z in range(size)]
 
             # (0,line,0) >> (size,line,size)
             for x in range(size):
                 for z in range(size):
-                    yield [getCoord(self, (x,y,z)) for y in range(size)]
+                    yield [self.getCoord((x,y,z)) for y in range(size)]
                     
 
 ##            # (line,0,0) >> (line,size,size)
@@ -81,5 +80,8 @@ class Board(object):
 ##        lines[gridsize*2 +1].append(return_cell((co,(gridsize-1)-co)))
 ##
 ##    return lines
-    
-        pass
+
+if __name__ == '__main__':
+    board = Board(3,3)
+    lala = board.BoardToLines()
+    for i in lala: print(i)
