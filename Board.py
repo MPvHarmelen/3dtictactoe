@@ -30,6 +30,7 @@ class Board(object):
         #  collumns and rows that are in different angles. I think that
         #  last is best to be discussed in real life =).
         pass
+    
     def BoardToLines(self):
             # If we use yield, we can only call it once. I'm not sure if you
             # know about generators, but if you do:
@@ -44,6 +45,11 @@ class Board(object):
             for x in range(size):
                 for z in range(size):
                     yield [self.getCoord((x,y,z)) for y in range(size)]
+
+            # (line,0,0) >> (line,size,size)
+            for y in range(size):
+                for z in range(size):
+                    yield [self.getCoord((x,y,z)) for x in range(size)]
                     
 
 ##            # (line,0,0) >> (line,size,size)
