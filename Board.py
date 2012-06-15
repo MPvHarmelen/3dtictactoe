@@ -6,7 +6,7 @@ class Board(object):
         for x in range(size):
             for y in range(size):
                 for z in range(size):
-                    self.board[(x,y,z)]=None
+                    self.board[(x,y,z)]=(x,y,z)
 
     def getCoord(self, coords):
         return self.board[coords]
@@ -36,20 +36,32 @@ class Board(object):
             # know about generators, but if you do:
             # yield generates a generator =)
             size = self.size
-            # (0,0,line) >> (size,size,line)
+            # (0,0,line) >> (size,size,line) | Yields 9 liens
             for x in range(size):
                 for y in range(size):
                     yield [self.getCoord((x,y,z)) for z in range(size)]
 
-            # (0,line,0) >> (size,line,size)
+            # (0,line,0) >> (size,line,size) | Yields 9 lines
             for x in range(size):
                 for z in range(size):
                     yield [self.getCoord((x,y,z)) for y in range(size)]
 
-            # (line,0,0) >> (line,size,size)
+            # (line,0,0) >> (line,size,size) | 9
             for y in range(size):
                 for z in range(size):
                     yield [self.getCoord((x,y,z)) for x in range(size)]
+
+            # (0,0,0) > (0,size,size) >> (size,0,0) > (size,size,size) | 3
+            for x in range(size):
+                yield [self.getCoord((x,co,co)) for co in range(size)]
+
+            # (0,0,0) > (size,0,size) >> (0,size,0) > (size,size,size) | 3
+            for y in range(size):
+                yield [self.getCoord((co,y,co)) for co in range(size)]
+
+            # (0,0,0) > (size,size,0) >> (0,0,size) > (size,size,size) | 3
+            for z in range(size):
+                yield [self.getCoord((co,co,z)) for co in range(size)]
                     
 
 ##            # (line,0,0) >> (line,size,size)
@@ -89,5 +101,8 @@ class Board(object):
 
 if __name__ == '__main__':
     board = Board(3,3)
-    lala = board.BoardToLines()
-    for i in lala: print(i)
+    count = 0
+    for i in board.BoardToLines():
+        count += 1
+    print (count)
+    
